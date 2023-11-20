@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Custom</title>
+  <link rel="stylesheet" type="text/css" href="main.css"/>
+</head>
+
+<body ondragover="drag_over(event)" ondrop="drop(event)">
+
+<span class="container">
+  <button class="toggle-btn" onclick="toggleSection()">⛶</button>
+
+  <section class="tab" id="tab">
+
+    <li class="dropdown">
+      <button onclick="toggleDropdown()">Select an option</button>
+      <li id="dropdownOptions" class="dropdown-content">
+        <a href="#" onclick="addDiv(0)">Option 1</a>
+        <a href="#" onclick="addDiv(1)">Option 2</a>
+        <a href="#" onclick="addDiv(2)">Option 3</a>
+      </li>
+    </li>
+      <input type="color" id="colorPicker"  value="#ffffff" onchange="changeBackgroundColor()">
+
+    <button id="toggleButton"> Toggle Draggable</button>
+
+    <button onclick="location.href='index.html'"> Custom</button>
+
+    <button onclick="location.href='standard.html'"> Standard</button>
+
+    <button onclick="save_func()">Save</button>
+
+    <input id="load" type="file" value="load" onchange="load_func()">
+
+  </section>
+</span>
+
+
+<span id="draggable-container">
+</span>
+
+<li id="background"></li>
+
+<script src="DnD.js"></script>
+
+<script src="save.js"></script>
+
+<script src="Resize.js"></script>
+
+<script src="addDiv.js"></script>
+
+<script src="others.js"></script>
+
+<script>
+  const toggleButton = document.getElementById('toggleButton');
+
+  toggleButton.addEventListener('click', function () {
+    const draggableElements = document.querySelectorAll('.draggable');
+    draggableElements.forEach(element => {
+      const isDraggable = element.draggable;
+      element.draggable = !isDraggable;
+    });
+  });
+</script>
+</body>
+</html>
