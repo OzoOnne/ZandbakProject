@@ -108,3 +108,8 @@ div
     font-size: 14px;
     cursor: pointer;
 }
+
+.scalable-svg {
+    width: 100%;
+    height: 100%;
+}

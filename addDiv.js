@@ -1,23 +1,26 @@
 var divCounter = 0;
 var divCounter2 = 0;
 var divObject = {};
-
-function createPreMadeDiv(width, height, aspectRatio) {
+function createPreMadeDiv(width, height, aspectRatio, svgHtmlScript) {
     var preMadeDiv = document.createElement("div");
     preMadeDiv.style.width = width;
     preMadeDiv.style.height = height;
     preMadeDiv.setAttribute("data-aspect-ratio", aspectRatio);
+
+    if (svgHtmlScript) {
+        var tempContainer = document.createElement("div");
+        tempContainer.innerHTML = svgHtmlScript;
+
+        var svgElement = tempContainer.firstChild;
+        preMadeDiv.appendChild(svgElement);
+    }
+
     divObject[divCounter2] = preMadeDiv;
     divCounter2++;
 
     return preMadeDiv;
 }
 
-
-
-createPreMadeDiv("50px", "50px",  "1/1");
-
-createPreMadeDiv("60px", "40px",  "3/2");
 
 
 

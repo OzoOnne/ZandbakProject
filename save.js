@@ -1,10 +1,12 @@
 function save_func() {
     var divs = document.getElementsByClassName("draggable").length;
     var data = [];
+    var bodyBackgroundColor = document.body.style.backgroundColor;
 
     for (let i = 0; i < divs; i++) {
         var divElement = document.getElementsByClassName("draggable").item(i);
         var divRect = divElement.getBoundingClientRect();
+        var svgContent = divElement.innerHTML;
 
         var divData = {
             id: divElement.id,
@@ -24,7 +26,10 @@ function save_func() {
                 class: "delete-button",
                 onclick: "deleteDiv(this.parentElement)",
                 innerText: "✖"
-            }
+            },
+
+            svgContent: svgContent,
+            bodyBackgroundColor: bodyBackgroundColor
         };
 
         data.push(divData);
@@ -67,9 +72,8 @@ function load_func() {
             newDiv.style.top = divData.rect.top + "px";
             newDiv.style.width = divData.rect.width + "px";
             newDiv.style.height = divData.rect.height + "px";
+            newDiv.innerHTML = divData.svgContent;
 
-
-            // Add the button to the div
             var deleteButton = document.createElement("button");
             deleteButton.className = divData.button.class;
             deleteButton.onclick = function () {
@@ -79,7 +83,11 @@ function load_func() {
             newDiv.appendChild(deleteButton);
 
             draggableContainer.appendChild(newDiv);
+            divCounter += 1;
         });
+
+        document.body.style.backgroundColor = load[0].bodyBackgroundColor;
+        document.getElementById("background").style.backgroundColor = load[0].bodyBackgroundColor;
     };
 
     reader.readAsText(file);

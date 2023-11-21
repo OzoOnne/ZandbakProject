@@ -16,9 +16,15 @@
     <li class="dropdown">
       <button onclick="toggleDropdown()">Select an option</button>
       <li id="dropdownOptions" class="dropdown-content">
-        <a href="#" onclick="addDiv(0)">Option 1</a>
-        <a href="#" onclick="addDiv(1)">Option 2</a>
-        <a href="#" onclick="addDiv(2)">Option 3</a>
+        <a href="#" onclick="addDiv(0)">Circle </a>
+        <a href="#" onclick="addDiv(1)">rectangle</a>
+        <a href="#" onclick="addDiv(2)">line</a>
+        <a href="#" onclick="addDiv(3)">ellipse</a>
+        <a href="#" onclick="addDiv(4)">polygon</a>
+        <a href="#" onclick="addDiv(5)">polyline</a>
+        <a href="#" onclick="addDiv(6)">path1</a>
+        <a href="#" onclick="addDiv(7)">path2</a>
+
       </li>
     </li>
       <input type="color" id="colorPicker"  value="#ffffff" onchange="changeBackgroundColor()">
@@ -37,10 +43,11 @@
 </span>
 
 
-<span id="draggable-container">
-</span>
+<span id="draggable-container"></span>
 
 <li id="background"></li>
+
+<script src="Divs.js"></script>
 
 <script src="DnD.js"></script>
 
